@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import PostFooter from '../../components/PostFooter.astro';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('learn', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article class="container prose">
+    <header class="article__header">
+      <p class="article__meta">
+        <FormattedDate date={post.data.pubDate} />
+        {
+          post.data.updatedDate && (
+            <span> · Updated <FormattedDate date={post.data.updatedDate} /></span>
+          )
+        }
+      </p>
+      <h1>{post.data.title}</h1>
+      <p class="lede">{post.data.description}</p>
+    </header>
+
+    <div class="article__body">
+      <Content />
+    </div>
+
+    <PostFooter />
+
+    <p style="margin-top: 2.5rem;">
+      <a href="/learn">&larr; Back to all posts</a>
+    </p>
+  </article>
+</BaseLayout>

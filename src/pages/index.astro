@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+// 최신 글 3개만 홈에 노출
+const posts = (await getCollection('learn', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout>
+  <section class="container hero">
+    <p class="eyebrow">Do-chwi</p>
+    <h1 class="hero__tagline">Brew Korean sool at home.</h1>
+    <p class="hero__lede">
+      Makgeolli, takju, cheongju — the whole warm, cloudy world of Korean rice
+      wine, taught one small batch at a time. No special equipment, no jargon.
+      Just rice, water, nuruk, and a little patience.
+    </p>
+    <p style="margin-top: 2rem;">
+      <a href="/learn" class="button">Start learning</a>
+    </p>
+  </section>
+
+  {
+    posts.length > 0 && (
+      <section class="container" style="margin-top: 4rem;">
+        <h2>Latest from the Learn journal</h2>
+        <ul class="post-list">
+          {posts.map((post) => (
+            <li>
+              <a href={`/learn/${post.id}/`}>
+                <span class="post-list__title">{post.data.title}</span>
+                <FormattedDate date={post.data.pubDate} class="post-list__date" />
+                <p class="post-list__desc">{post.data.description}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p style="margin-top: 2rem;">
+          <a href="/learn">See all posts &rarr;</a>
+        </p>
+      </section>
+    )
+  }
+</BaseLayout>

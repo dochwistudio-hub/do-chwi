@@ -1,0 +1,29 @@
+---
+const { pathname } = Astro.url;
+// 현재 경로가 링크와 일치하면 aria-current="page" 를 붙입니다.
+const isActive = (href: string) =>
+  href === '/' ? pathname === '/' : pathname.startsWith(href);
+
+const links = [
+  { href: '/learn', label: 'Learn' },
+  { href: '/about', label: 'About' },
+];
+---
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">
+      <span class="brand__name">Do-chwi</span>
+      <span class="brand__tagline">Brew Korean sool at home</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      {
+        links.map((link) => (
+          <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

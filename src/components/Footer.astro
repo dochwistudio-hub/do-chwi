@@ -1,0 +1,25 @@
+---
+const year = new Date().getFullYear();
+
+// 소셜 링크 — 필요 시 URL 만 교체하세요.
+const socials = [
+  { label: 'Instagram', href: 'https://instagram.com/do.chwi' },
+  { label: 'Threads', href: 'https://www.threads.net/@do.chwi' },
+  { label: 'X', href: 'https://x.com/do_chwi' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <span>&copy; {year} Do-chwi — Brew Korean sool at home.</span>
+    <nav class="social" aria-label="Social">
+      {
+        socials.map((s) => (
+          <a href={s.href} target="_blank" rel="me noopener">
+            {s.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</footer>

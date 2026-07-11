@@ -1,0 +1,32 @@
+---
+// 각 글 하단에 붙는 CTA — 이메일 구독 폼 한 줄 + 인스타그램 안내.
+const instagramUrl = 'https://instagram.com/do.chwi';
+---
+
+<aside class="post-cta">
+  <div class="post-cta__block">
+    <p class="post-cta__label">Get notified when I post something new</p>
+    {/*
+      TODO: 백엔드 미연결 상태. 실제 구독을 받으려면 아래 form 의 action 을
+      메일 서비스(Buttondown, ConvertKit, Mailchimp 등) 엔드포인트로 교체하고
+      method="post" 로 실제 전송되게 연결할 것.
+    */}
+    <form class="subscribe-form" action="#" method="post" aria-label="Newsletter signup">
+      <label for="post-email" style="position:absolute;left:-9999px;">Email address</label>
+      <input
+        id="post-email"
+        name="email"
+        type="email"
+        placeholder="you@example.com"
+        required
+        autocomplete="email"
+      />
+      <button type="submit" class="button">Notify me</button>
+    </form>
+  </div>
+
+  <p class="post-cta__note">
+    Questions? Weird batch? Send me a photo on Instagram
+    <a href={instagramUrl} target="_blank" rel="me noopener">@do.chwi</a>
+  </p>
+</aside>
