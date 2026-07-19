@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npm run build)",
+      "PowerShell(npm run build *)",
+      "PowerShell(npx astro build)",
+      "PowerShell(npx astro build *)",
+      "PowerShell(npm install)",
+      "PowerShell(npm install *)",
+      "PowerShell(git add *)",
+      "PowerShell(git commit *)",
+      "PowerShell(git status)",
+      "PowerShell(git status *)",
+      "PowerShell(git log)",
+      "PowerShell(git log *)",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost*)",
+      "PowerShell(Invoke-WebRequest -Uri http://localhost*)",
+      "Bash(npm run build)",
+      "Bash(npm run build *)",
+      "Bash(npx astro build)",
+      "Bash(npx astro build *)",
+      "Bash(npm install)",
+      "Bash(npm install *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git status)",
+      "Bash(git status *)",
+      "Bash(git log)",
+      "Bash(git log *)",
+      "Bash(curl http://localhost:*)"
+    ],
+    "ask": [
+      "PowerShell(git push *)",
+      "PowerShell(rm *)",
+      "PowerShell(Remove-Item *)",
+      "PowerShell(del *)",
+      "Bash(git push *)",
+      "Bash(rm *)"
+    ]
+  }
+}
