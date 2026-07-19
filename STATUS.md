@@ -1,6 +1,6 @@
 # Do-chwi — Project Status
 
-_Last updated: 2026-07-11_
+_Last updated: 2026-07-19_
 
 Minimal English blog about brewing Korean *sool* (makgeolli, takju, etc.) at home.
 Brand: **Do-chwi** · Tagline: *"Brew Korean sool at home."*
@@ -47,8 +47,8 @@ Brand: **Do-chwi** · Tagline: *"Brew Korean sool at home."*
 ## Remaining / TODO
 
 ### Content & copy
-- [ ] Fill in real **About** copy (currently `[PLACEHOLDER]`): brewer intro, Korean brewery
-      production / QC / new-product-development background, community purpose.
+- [x] Fill in real **About** copy: semi-anonymous brewer intro, Korean brewery
+      production / QC / new-product-development background, free-guide purpose.
 - [ ] Write real posts (replace or expand the 3 samples).
 
 ### Newsletter
@@ -57,12 +57,14 @@ Brand: **Do-chwi** · Tagline: *"Brew Korean sool at home."*
       (Buttondown / ConvertKit / Mailchimp) and enable real submission.
 
 ### Links & assets
-- [ ] Confirm/replace social URLs in `Footer.astro` (Instagram, Threads, X) and the
-      Instagram handle `@do.chwi` used in `PostFooter.astro` / `about.astro`.
-- [ ] Set the real production domain in `astro.config.mjs` (`site:` is a placeholder).
+- [x] Social URLs in `Footer.astro` set (Instagram `do.chwi`, Threads `@do.chwi`,
+      X `dochwi`). Instagram handle `@do.chwi` still used in `PostFooter.astro` /
+      `about.astro` — confirm it's the real handle.
+- [x] Set the real production domain in `astro.config.mjs` (`site: https://do-chwi.com`).
 
-### Deploy (not started)
-- [ ] Connect the repo to **GitHub**.
+### Deploy (in progress)
+- [ ] Connect the repo to **GitHub**. `gh` CLI is **not installed** and no `git
+      remote` is set yet — needs a GitHub repo + auth (see below).
 - [ ] Choose a host (Netlify / Vercel / Cloudflare Pages) and deploy.
 
 ### Tooling (planned, deferred)
