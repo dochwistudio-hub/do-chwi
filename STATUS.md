@@ -42,7 +42,7 @@ Brand: **Do-chwi** · Tagline: *"Brew Korean sool at home."*
 ### Repo
 - `git init` done, branch `main`, commits in place.
 - Local git identity (repo-scoped only): `Do-chwi <do.chwi@users.noreply.github.com>`.
-- **Not pushed anywhere yet.**
+- Pushed to GitHub: `https://github.com/dochwistudio-hub/do-chwi` (Public).
 
 ## Remaining / TODO
 
@@ -63,8 +63,9 @@ Brand: **Do-chwi** · Tagline: *"Brew Korean sool at home."*
 - [x] Set the real production domain in `astro.config.mjs` (`site: https://do-chwi.com`).
 
 ### Deploy (in progress)
-- [ ] Connect the repo to **GitHub**. `gh` CLI is **not installed** and no `git
-      remote` is set yet — needs a GitHub repo + auth (see below).
+- [x] Connect the repo to **GitHub**. Public repo:
+      `https://github.com/dochwistudio-hub/do-chwi` (account `dochwistudio-hub`).
+      `origin` remote set, `main` tracks `origin/main`. `gh` CLI v2.96 installed.
 - [ ] Choose a host (Netlify / Vercel / Cloudflare Pages) and deploy.
 
 ### Tooling (planned, deferred)
