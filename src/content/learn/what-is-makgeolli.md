@@ -2,6 +2,7 @@
 title: 'What is Makgeolli, Really?'
 description: 'A one-page introduction to Korea’s cloudy, lightly sparkling rice wine — and why it’s the perfect first brew.'
 pubDate: 2026-05-02
+draft: true
 ---
 
 If you have only ever met makgeolli as a cold, milky drink in a green bottle,

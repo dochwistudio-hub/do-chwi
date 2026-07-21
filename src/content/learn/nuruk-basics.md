@@ -2,6 +2,7 @@
 title: 'Nuruk: The Heart of the Brew'
 description: 'What nuruk is, how it works, and how to treat this living fermentation starter so it treats your batch well.'
 pubDate: 2026-06-08
+draft: true
 ---
 
 If rice is the body of makgeolli, **nuruk** (누룩) is its soul. Understanding it

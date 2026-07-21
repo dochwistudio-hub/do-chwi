@@ -2,6 +2,7 @@
 title: 'Your First Batch: The Checklist'
 description: 'Everything you need on hand before you steam your first pot of rice — no specialty equipment required.'
 pubDate: 2026-05-20
+draft: true
 ---
 
 You do not need a fermentation chamber or a hydrometer to start. You almost
