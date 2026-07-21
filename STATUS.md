@@ -1,9 +1,11 @@
 # Do-chwi — Project Status
 
-_Last updated: 2026-07-19_
+_Last updated: 2026-07-22_
 
 Minimal English blog about brewing Korean *sool* (makgeolli, takju, etc.) at home.
 Brand: **Do-chwi** · Tagline: *"Brew Korean sool at home."*
+
+**Live at [do-chwi.com](https://do-chwi.com)** — deployed on Cloudflare Pages.
 
 ## Stack
 
@@ -15,65 +17,63 @@ Brand: **Do-chwi** · Tagline: *"Brew Korean sool at home."*
 
 ## Current state — DONE
 
+### Deploy — LIVE
+- Repo on GitHub: `https://github.com/dochwistudio-hub/do-chwi` (Public, account `dochwistudio-hub`).
+- Host: **Cloudflare Pages**, connected to the GitHub repo (auto-deploy on push to `main`).
+- Custom domain **do-chwi.com** connected and verified — site is live.
+
 ### Pages
-- **Home** (`/`) — serif hero tagline, intro line ("I'm a brewer from Korea…"), latest 3 posts
+- **Home** (`/`) — serif hero tagline + friendly one-line greeting from the brewer, intro, latest posts
 - **Brewing Notes** (`/learn`) — post list, newest first (nav label is "Brewing Notes", URL stays `/learn`)
 - **Post detail** (`/learn/[slug]`) — rendered from markdown, with per-post footer CTA
-- **About** (`/about`) — semi-anonymous brewer intro + community purpose (placeholder copy), educational-use disclaimer
+- **About** (`/about`) — real copy: semi-anonymous brewer intro, brewery production/QC/NPD
+  background, free-guide purpose, educational-use disclaimer
 - ~~`/subscribe`~~ — removed; signup now lives at the bottom of each post
 
 ### Content
 - Posts are markdown in `src/content/learn/`. Schema in `src/content.config.ts`
   (`title`, `description`, `pubDate`, optional `updatedDate`, `draft`).
 - `draft: true` hides a post from build/listing.
-- 3 sample posts: `what-is-makgeolli`, `first-batch-checklist`, `nuruk-basics`.
+- **First post published:** `why-i-started-this` (2026-07-21, `draft: false`).
+- 3 sample posts (`what-is-makgeolli`, `first-batch-checklist`, `nuruk-basics`) set to
+  `draft: true` — hidden from the live site, kept for reference.
 
 ### Design
 - Cream/rice background `#f7f3e9`, warm ink `#2b2620`, terracotta accent `#a8563a`
 - Serif headings, sans body, generous whitespace, hairline dividers
+- **Warmth pass:** hero greeting line, link hover color transition (0.2s), post-card hover
+  lift (translateY -2px + soft shadow), body line-height 1.75, terracotta on blockquote
+  border + link underlines
 - Favicon: **稻** (rice) glyph, `public/favicon.svg`
 
 ### Components
-- `Header.astro`, `Footer.astro` (social links: Instagram / Threads / X — placeholder URLs)
+- `Header.astro`, `Footer.astro` — real social URLs (Instagram `do.chwi`, Threads `@do.chwi`,
+  X `dochwi`) + "Brewed with patience in Korea 🍶" footer note
 - `BaseLayout.astro`, `FormattedDate.astro`
-- `PostFooter.astro` — per-post email signup ("Get notified when I post something new")
+- `PostFooter.astro` — per-post email signup (UI only, no backend yet)
   + Instagram note ("Questions? Weird batch? Send me a photo on Instagram @do.chwi")
 
-### Repo
-- `git init` done, branch `main`, commits in place.
-- Local git identity (repo-scoped only): `Do-chwi <do.chwi@users.noreply.github.com>`.
-- Pushed to GitHub: `https://github.com/dochwistudio-hub/do-chwi` (Public).
+### Tooling & docs
+- `CLAUDE.md` created — includes **밥알이(Bap-ari) 이모지 작업 규칙** (read the guide first,
+  log every new emoji in the catalog, use transparent `_t` versions in posts).
+- `bapari/` (mascot/brand working files incl. `BAPARI_EMOJI_GUIDE.md`) is **gitignored** —
+  kept locally, not published to the repo.
 
-## Remaining / TODO
+## Next up (priority order)
 
-### Content & copy
-- [x] Fill in real **About** copy: semi-anonymous brewer intro, Korean brewery
-      production / QC / new-product-development background, free-guide purpose.
-- [ ] Write real posts (replace or expand the 3 samples).
+1. **[TOP] Wire up the newsletter backend.** Form UI already exists in
+   `src/components/PostFooter.astro` — just point `<form action>` at a mail service
+   (Buttondown / ConvertKit / Mailchimp) and enable real submission.
+2. **Publish more blog posts** — build out the Brewing Notes journal.
+3. **Insert 밥알이 emoji into blog posts** — follow `bapari/BAPARI_EMOJI_GUIDE.md`
+   (transparent `_t` versions, size via CSS, log each new emoji in the catalog).
+4. **Prep for the 8/5–8/10 presentation** — the live site is the presentation evidence.
 
-### Newsletter
-- [ ] Wire up the email signup form. It is **UI-only, no backend** (see TODO in
-      `src/components/PostFooter.astro`). Point `<form action>` at a mail service
-      (Buttondown / ConvertKit / Mailchimp) and enable real submission.
+## Milestones / context
+- **2026-07-21** — 오늘전통 공모전 서류 제출 완료 (application documents submitted).
+- **2026-08-05 – 08-10** — 발표 (presentation); the do-chwi.com site serves as the evidence/deliverable.
 
-### Links & assets
-- [x] Social URLs in `Footer.astro` set (Instagram `do.chwi`, Threads `@do.chwi`,
-      X `dochwi`). Instagram handle `@do.chwi` still used in `PostFooter.astro` /
-      `about.astro` — confirm it's the real handle.
-- [x] Set the real production domain in `astro.config.mjs` (`site: https://do-chwi.com`).
-
-### Deploy (in progress)
-- [x] Connect the repo to **GitHub**. Public repo:
-      `https://github.com/dochwistudio-hub/do-chwi` (account `dochwistudio-hub`).
-      `origin` remote set, `main` tracks `origin/main`. `gh` CLI v2.96 installed.
-- [ ] Choose a host (Netlify / Vercel / Cloudflare Pages) and deploy.
-
-### Tooling (planned, deferred)
-- [ ] **`publish.bat`**: after GitHub is connected, a double-click script that
-      auto `git add` → `commit` → `push` when a new post markdown is dropped into
-      `src/content/learn/`.
-- [ ] (Open) Permission allowlist for this project — deferred; not yet decided
-      where to store the rules (project vs. home session settings).
-
-### Nice-to-have (not requested yet)
+## Nice-to-have (not requested yet)
 - [ ] RSS feed, tags/categories, real web fonts, sitemap.
+- [ ] `publish.bat` — double-click script to auto `git add` → `commit` → `push` when a new
+      post markdown is dropped into `src/content/learn/`.
