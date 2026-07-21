@@ -21,3 +21,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# internal brand/mascot working files (not for the public site)
+bapari/
